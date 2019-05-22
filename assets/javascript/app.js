@@ -42,15 +42,32 @@ var question5 = {
     AnswerD: ""
 };
 
-
+var gameInfo = $('#wrapper')
 
 intervalID = setInterval(count, 1000);
 
-
-
+score = "88%"
+// function determineScore(userAnswers, correctAnswers) {
+//   return score
+// }
 
 function gameOver() {
-  $(document).html("Hello World!")
+  $('#wrapper').remove()
+  $('body').append('<div id="score">Your score was: </div>')
+  $("#score").append(score)
+  $('body').append('<div id=playAgain>Play Again? </div>')
+  $('#playAgain').append('<button id="playButton">Play</button>')
+  $('#playButton').click(function (){startNewGame()})
+}
+
+
+function startNewGame() {
+  $('#score').remove()
+  $('#playAgain').remove()
+  $('body').append(gameInfo)
+  time = 5;
+  $("#display").html("00:05");
+  setInterval(count, 1000);
 }
 
 function count() {
