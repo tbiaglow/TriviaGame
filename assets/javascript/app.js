@@ -1,51 +1,45 @@
-
-var time = 120;
-$("#display").html("02:00");
-
-
+var time = 60;
+$("#display").html("01:00");
 
 var question1 = {
-    question: "Hello World",
-    answerA: "A",
-    answerB: "B",
-    answerC: "C",
-    answerD: "D"
+    question: "Who founded the Standard Oil Company?",
+    answerA: "Andrew Carnegie",
+    answerB: "John D Rockefeller",
+    answerC: "John McCain",
+    answerD: "Christopher Columbus"
 };
 var question2 = {
-    question: "",
-    answerA: "A",
-    answerB: "B",
-    answerC: "C",
-    answerD: "D"
+    question: "Which US President became known as a 'trust-buster' when he broke up the Northern Securities Company?",
+    answerA: "Franklin Roosevelt",
+    answerB: "Andrew Johnson",
+    answerC: "Theodore Roosevelt",
+    answerD: "Dwight Eisenhower"
 };
 var question3 = {
-    question: "",
-    answerA: "A",
-    answerB: "B",
-    answerC: "C",
-    answerD: "D"
+    question: "Which Civil Rights activist is famous for being one of the founders of the National Association for the Advancement of Colored People?",
+    answerA: "W.E.B. Du Bois",
+    answerB: "Booker T. Washington",
+    answerC: "Malcolm X",
+    answerD: "Martin Luther King, Jr."
 };
 var question4 = {
-    question: "",
-    answerA: "A",
-    answerB: "B",
-    answerC: "C",
-    answerD: "D"
+    question: "Which president signed an executive order establishing the Environmental Protection Agency?",
+    answerA: "Richard Nixon",
+    answerB: "Theodore Roosevelt",
+    answerC: "Franklin Roosevelt",
+    answerD: "Lyndon Johnson"
 };
 var question5 = {
-    question: "",
-    answerA: "A",
-    answerB: "B",
-    answerC: "C",
-    answerD: "D"
+    question: "Which of the following presidents illegally sold arms to Iran?",
+    answerA: "Bill Clinton",
+    answerB: "George Bush",
+    answerC: "barack Obama",
+    answerD: "Ronald Reagan"
 };
 
 var questions = [question1, question2, question3, question4, question5];
 var correctAnswers = [questions[0].answerB, questions[1].answerC, questions[2].answerA, questions[3].answerA, questions[4].answerD];
 var userAnswers = [];
-
-
-
 
 intervalID = setInterval(count, 1000);
 
@@ -78,7 +72,6 @@ $('#q5D').on("click", function () {userAnswers[4] = question5.answerD})
 $('#doneButton').on("click", function () {gameOver()})
 });
 
-
 function determineScore(userAnswers, correctAnswers) {
   var score = 0;
   for (i = 0; i < correctAnswers.length; i++) {
@@ -104,7 +97,6 @@ function gameOver() {
   })
 }
 
-
 function startNewGame() {
   $(document).ready(function() {
   $('#score').remove()
@@ -112,20 +104,16 @@ function startNewGame() {
   })
   $(document).ready(function() {
   $('#wrapper').show()
-  time = 120;
-  $("#display").html("02:00");
+  time = 60;
+  $("#display").html("01:00");
   setInterval(count, 1000);
   })
 }
 
 function count() {
-
-    time--;
-
-    var counter = timeConverter(time);
-
-    $("#display").html(counter);
-
+  time--;
+  var counter = timeConverter(time);
+  $("#display").html(counter);
   if (time === 0) {
     clearInterval(intervalID)
     gameOver()
@@ -133,8 +121,6 @@ function count() {
 }
 
 function timeConverter(t) {
-
-
   var minutes = Math.floor(t / 60);
   var seconds = t - (minutes * 60);
 

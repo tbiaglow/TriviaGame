@@ -1,0 +1,12 @@
+body {
+    background-image: url('../images/USFlag.jpg');
+    background-repeat: no-repeat
+}
+
+#wrapper {
+    background: navy;
+    color: white;
+    width: 750px;
+    padding: 5px;
+}
+
