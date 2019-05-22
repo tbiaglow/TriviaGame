@@ -5,7 +5,7 @@ $("#display").html("02:00");
 
 
 var question1 = {
-    question: "",
+    question: "Hello World",
     answerA: "A",
     answerB: "B",
     answerC: "C",
@@ -42,30 +42,35 @@ var question5 = {
 
 var questions = [question1, question2, question3, question4, question5];
 var correctAnswers = [questions[0].answerB, questions[1].answerC, questions[2].answerA, questions[3].answerA, questions[4].answerD];
-var userAnswers = [1, 2, 3, 4, 5];
+var userAnswers = [];
 
 
-var gameInfo = $('#wrapper')
+
 
 intervalID = setInterval(count, 1000);
 
 $(document).ready(function() {
+$('#questionOne').prepend(question1.question)
 $('#q1A').on("click", function () {userAnswers[0] = question1.answerA})
 $('#q1B').on("click", function () {userAnswers[0] = question1.answerB})
 $('#q1C').on("click", function () {userAnswers[0] = question1.answerC})
 $('#q1D').on("click", function () {userAnswers[0] = question1.answerD})
+$('#questionTwo').prepend(question2.question)
 $('#q2A').on("click", function () {userAnswers[1] = question2.answerA})
 $('#q2B').on("click", function () {userAnswers[1] = question2.answerB})
 $('#q2C').on("click", function () {userAnswers[1] = question2.answerC})
 $('#q2D').on("click", function () {userAnswers[1] = question2.answerD})
+$('#questionThree').prepend(question3.question)
 $('#q3A').on("click", function () {userAnswers[2] = question3.answerA})
 $('#q3B').on("click", function () {userAnswers[2] = question3.answerB})
 $('#q3C').on("click", function () {userAnswers[2] = question3.answerC})
 $('#q3D').on("click", function () {userAnswers[2] = question3.answerD})
+$('#questionFour').prepend(question4.question)
 $('#q4A').on("click", function () {userAnswers[3] = question4.answerA})
 $('#q4B').on("click", function () {userAnswers[3] = question4.answerB})
 $('#q4C').on("click", function () {userAnswers[3] = question4.answerC})
 $('#q4D').on("click", function () {userAnswers[3] = question4.answerD})
+$('#questionFive').prepend(question5.question)
 $('#q5A').on("click", function () {userAnswers[4] = question5.answerA})
 $('#q5B').on("click", function () {userAnswers[4] = question5.answerB})
 $('#q5C').on("click", function () {userAnswers[4] = question5.answerC})
@@ -89,7 +94,7 @@ function determineScore(userAnswers, correctAnswers) {
 function gameOver() {
   score = determineScore(userAnswers, correctAnswers);
   $(document).ready(function() {
-  $('#wrapper').remove()
+  $('#wrapper').hide()
   $('body').append('<div id="score">Your score was: </div>')
   $("#score").append(score)
   $("#score").append("%")
@@ -104,9 +109,11 @@ function startNewGame() {
   $(document).ready(function() {
   $('#score').remove()
   $('#playAgain').remove()
-  $('body').append(gameInfo)
-  time = 5;
-  $("#display").html("00:05");
+  })
+  $(document).ready(function() {
+  $('#wrapper').show()
+  time = 120;
+  $("#display").html("02:00");
   setInterval(count, 1000);
   })
 }
