@@ -1,6 +1,10 @@
-var intervalId;
-var time = 120;
-questions = [question1, question2, question3, question4, question5];
+
+var time = 5;
+$("#display").html("00:05");
+var questions = [question1, question2, question3, question4, question5];
+
+var userAnswers = [];
+//var correctAnswers = [questions[0].answerB, questions[1].answerC, questions[2].answerA, questions[3].answerA, questions[4].answerD];
 
 var question1 = {
     question: "",
@@ -38,9 +42,16 @@ var question5 = {
     AnswerD: ""
 };
 
-$("#display").html("02:00");
 
-intervalId = setInterval(count, 1000);
+
+intervalID = setInterval(count, 1000);
+
+
+
+
+function gameOver() {
+  $(document).html("Hello World!")
+}
 
 function count() {
 
@@ -49,7 +60,12 @@ function count() {
     var counter = timeConverter(time);
 
     $("#display").html(counter);
+
+  if (time === 0) {
+    clearInterval(intervalID)
+    gameOver()
   }
+}
 
 function timeConverter(t) {
 
